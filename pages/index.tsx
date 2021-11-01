@@ -3,7 +3,7 @@ import Link from 'next/link';
 import useUser from '../hooks/useUser';
 
 const Home: NextPage = () => {
-  const { user } = useUser();
+  const { user } = useUser({ redirectTo: '' });
   return (
     <>
       <header>
