@@ -27,13 +27,12 @@ const Login: NextPage = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('test');
     e.preventDefault();
     const { data: loginData } = await api.post<
       { id: string; password: string },
-      AxiosResponse<{ _id: string; exp: string; authorization: string }>
+      AxiosResponse<{ token: string }>
     >('/auth/login', { id, password });
-    localStorage.setItem('accessToken', loginData.authorization);
+    localStorage.setItem('accessToken', loginData.token);
     await mutateUser();
   };
 

@@ -9,7 +9,7 @@ api.interceptors.request.use(async (config) => {
   if (!accessToken) return config;
   config.headers = {
     ...config.headers,
-    Authorization: accessToken,
+    Authorization: `Bearer ${accessToken}`,
   };
   return config;
 });
