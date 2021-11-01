@@ -1,8 +1,14 @@
 import type { NextPage } from 'next';
+import styled from 'styled-components';
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Login: NextPage = () => {
   return (
-    <form>
+    <Form>
       <label>
         username:
         <input type='text' name='id' autoComplete='username' />
@@ -11,7 +17,7 @@ const Login: NextPage = () => {
         password:
         <input type='password' name='password' autoComplete='password' />
       </label>
-    </form>
+    </Form>
   );
 };
 
