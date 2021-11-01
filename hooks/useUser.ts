@@ -3,9 +3,8 @@ import Router from 'next/router';
 import useSWR from 'swr';
 
 export interface User {
-  _id: string;
-  nickname: string;
-  type: string;
+  id: string;
+  admin: boolean;
 }
 
 export default function useUser({

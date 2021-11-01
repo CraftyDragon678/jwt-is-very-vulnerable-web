@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -28,12 +28,15 @@ const Login: NextPage = () => {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data: loginData } = await api.post<
-      { id: string; password: string },
-      AxiosResponse<{ token: string }>
-    >('/auth/login', { id, password });
-    localStorage.setItem('accessToken', loginData.token);
-    await mutateUser();
+
+    try {
+      const { data: loginData } = await api.post<
+        { id: string; password: string },
+        AxiosResponse<{ token: string }>
+      >('/auth/login', { id, password });
+      localStorage.setItem('accessToken', loginData.token);
+      await mutateUser();
+    } catch (error) {}
   };
 
   return (

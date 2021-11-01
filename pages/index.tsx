@@ -11,7 +11,13 @@ const Home: NextPage = () => {
           <ul>
             <li>
               {user ? (
-                <Link href='/logout'>로그아웃</Link>
+                <>
+                  <Link href='/logout'>로그아웃</Link>
+                  <br />
+                  id: {user.id}
+                  <br />
+                  admin permission: {user.admin ? '있음' : '없음'}
+                </>
               ) : (
                 <Link href='/login'>로그인</Link>
               )}
