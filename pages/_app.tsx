@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <GlobalStyle />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </SWRConfig>
   );
 }
